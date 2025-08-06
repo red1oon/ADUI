@@ -13,7 +13,7 @@
 
 **Traditional Problem:** Every mobile form needs custom development, app store updates, and technical expertise  
 **ADUI Solution:** Pure JSON configuration creates enterprise-grade mobile forms instantly
-
+**JSON Tool:** Handy CSV to JSON and a JSON model designer ready (see separate project [JSONFormMaker](https://github.com/red1oon/JSONFormMaker ) under same author)
 ```json
 // This JSON creates a complete mobile inspection app
 {
