@@ -2,7 +2,12 @@
 
 > **🚀 Transform mobile app development: Deploy sophisticated forms in minutes, not months**
 
-**Metadata-driven mobile forms platform that eliminates custom development through JSON configuration** 
+**Metadata-driven mobile forms platform that eliminates custom development through JSON configuration**
+
+[![React Native](https://img.shields.io/badge/React%20Native-0.73+-blue.svg)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo-SDK%2050+-black.svg)](https://expo.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Why ADUI?
 
