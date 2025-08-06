@@ -1,0 +1,63 @@
+import { DataProvider } from '../contracts/DataProvider';
+import { MockDataProvider } from '../providers/MockDataProvider';
+import { APIDataProvider } from '../providers/APIDataProvider';
+
+export interface DataConfig {
+  provider: 'mock' | 'api';
+  apiConfig?: {
+    baseUrl: string;
+    apiKey: string;
+    timeout?: number;
+  };
+  cacheConfig?: {
+    enabled: boolean;
+    ttl: number; // Time to live in milliseconds
+  };
+}
+
+export const createDataProvider = (config: DataConfig): DataProvider => {
+  switch (config.provider) {
+    case 'mock':
+      return new MockDataProvider();
+    
+    case 'api':
+      if (!config.apiConfig) {
+        throw new Error('API configuration required for API provider');
+      }
+      return new APIDataProvider(config.apiConfig.baseUrl, config.apiConfig.apiKey);
+    
+    default:
+      throw new Error(`Unknown provider type: ${config.provider}`);
+  }
+};
+
+// Default configuration
+export const DEFAULT_DATA_CONFIG: DataConfig = {
+  provider: 'mock',
+  cacheConfig: {
+    enabled: true,
+    ttl: 5 * 60 * 1000 // 5 minutes
+  }
+};
+
+// Environment-based configuration
+export const getDataConfig = (): DataConfig => {
+  const env = process.env.NODE_ENV || 'development';
+  
+  if (env === 'production' && process.env.IDEMPIERE_API_URL) {
+    return {
+      provider: 'api',
+      apiConfig: {
+        baseUrl: process.env.IDEMPIERE_API_URL,
+        apiKey: process.env.IDEMPIERE_API_KEY || '',
+        timeout: 10000
+      },
+      cacheConfig: {
+        enabled: true,
+        ttl: 10 * 60 * 1000 // 10 minutes in production
+      }
+    };
+  }
+  
+  return DEFAULT_DATA_CONFIG;
+};

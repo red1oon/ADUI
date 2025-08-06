@@ -1,0 +1,88 @@
+{
+  "windowId": "EQUIP_VERIFICATION",
+  "name": "Equipment Verification Checklist",
+  "description": "QR-based equipment verification with checklist scanning",
+  "windowType": "Transaction",
+  "tabs": [
+    {
+      "tabId": "VERIFICATION",
+      "name": "Verification",
+      "sequence": 10,
+      "fields": [
+        {
+          "fieldId": "SITE_INFO",
+          "name": "Site Information",
+          "component": "TextField",
+          "sequence": 10,
+          "validation": {
+            "required": true
+          },
+          "ui": {
+            "helpText": "Enter site or building name"
+          }
+        },
+        {
+          "fieldId": "EQUIPMENT_CHECKLIST",
+          "name": "Equipment Verification",
+          "component": "QRChecklistField",
+          "sequence": 20,
+          "validation": {
+            "required": false
+          },
+          "data": {
+            "items": [
+              {
+                "id": "ITEM001",
+                "qrCode": "FIRE-EXT-A001",
+                "name": "Fire Extinguisher - Floor 1 East",
+                "status": "N",
+                "description": "10lb ABC dry chemical extinguisher",
+                "category": "safety"
+              },
+              {
+                "id": "ITEM002", 
+                "qrCode": "FIRE-EXT-A002",
+                "name": "Fire Extinguisher - Floor 1 West",
+                "status": "N",
+                "description": "10lb ABC dry chemical extinguisher",
+                "category": "safety"
+              },
+              {
+                "id": "ITEM003",
+                "qrCode": "EMRG-LGT-B001",
+                "name": "Emergency Light - Exit Door 1",
+                "status": "N", 
+                "description": "LED emergency exit light with battery backup",
+                "category": "lighting"
+              },
+              {
+                "id": "ITEM004",
+                "qrCode": "EMRG-LGT-B002", 
+                "name": "Emergency Light - Exit Door 2",
+                "status": "N",
+                "description": "LED emergency exit light with battery backup",
+                "category": "lighting"
+              },
+              {
+                "id": "ITEM005",
+                "qrCode": "SFTY-SHW-C001",
+                "name": "Safety Shower - Lab Area",
+                "status": "N",
+                "description": "Emergency eyewash and shower station",
+                "category": "safety"
+              }
+            ]
+          },
+          "ui": {
+            "helpText": "Use QR scan to verify each piece of equipment"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "source": "external-metadata-server",
+    "lastModified": "2025-01-18T00:00:00.000Z"
+  }
+}

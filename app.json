@@ -1,29 +1,98 @@
 {
   "expo": {
-    "name": "ADUI",
-    "slug": "ADUI",
+    "name": "ADUI - iDempiere AD Mobile Forms",
+    "slug": "adui-mobile-forms",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2196F3"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.adui.mobileforms",
+      "associatedDomains": [
+        "applinks:adui.app"
+      ],
+      "infoPlist": {
+        "NSCameraUsageDescription": "Camera access for QR scanning and photo capture",
+        "NSLocationWhenInUseUsageDescription": "Location access for GPS tagging",
+        "NSPhotoLibraryUsageDescription": "Photo library access for image management",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#2196F3"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.adui.mobileforms",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ],
+      "intentFilters": [
+        {
+          "action": "android.intent.action.VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "file",
+              "mimeType": "application/json"
+            },
+            {
+              "scheme": "content",
+              "mimeType": "application/json"
+            }
+          ],
+          "category": [
+            "android.intent.category.DEFAULT",
+            "android.intent.category.BROWSABLE"
+          ]
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-dev-client",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow camera access for photo capture and QR scanning in field inspections"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationForegroundPermission": "Allow location access to tag inspection data with GPS coordinates"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow photo library access for inspection image management"
+        }
+      ]
+    ],
+    "scheme": "adui",
+    "extra": {
+      "eas": {
+        "projectId": "17353246-a5c5-46e5-8edf-e700180715a0"
+      },
+      "metadataBaseUrl": "http://192.168.136.144:3001",
+      "metadataSource": "external"
     }
   }
 }

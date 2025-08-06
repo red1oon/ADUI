@@ -1,0 +1,32 @@
+{
+  "windowId" : "NEW_WINDOW",
+  "name" : "",
+  "description" : "",
+  "windowType" : "Transaction",
+  "tabs" : [ {
+    "tabId" : "TAB_001",
+    "name" : "General",
+    "sequence" : 10,
+    "fields" : [ {
+      "fieldId" : "SELECT_FIELD_001",
+      "name" : "SelectField",
+      "component" : "SelectField",
+      "sequence" : 10
+    } ]
+  }, {
+    "tabId" : "TAB_002",
+    "name" : "Tab 2",
+    "sequence" : 20,
+    "fields" : [ {
+      "fieldId" : "TASK_LIST_FIELD_001",
+      "name" : "TaskListField",
+      "component" : "TaskListField",
+      "sequence" : 10
+    } ]
+  } ],
+  "metadata" : {
+    "version" : "2.0",
+    "source" : "JSONFormMaker",
+    "lastModified" : "2025-07-29T01:17:56.096333"
+  }
+}

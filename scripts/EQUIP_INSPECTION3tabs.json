@@ -1,0 +1,325 @@
+{
+  "windowId": "SAFETY_AUDIT",
+  "name": "Safety Audit - Demo Template",
+  "description": "Comprehensive safety audit form demonstrating JSON import functionality",
+  "windowType": "Transaction",
+  "tabs": [
+    {
+      "tabId": "BASIC_INFO",
+      "name": "Basic Info",
+      "description": "Basic audit information",
+      "sequence": 10,
+      "tabLevel": 0,
+      "isReadOnly": false,
+      "isSingleRow": true,
+      "fields": [
+        {
+          "fieldId": "AUDIT_ID",
+          "name": "Audit ID",
+          "component": "QRCodeField",
+          "sequence": 10,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true,
+            "pattern": "^SAF-\\d{4}$"
+          },
+          "ui": {
+            "helpText": "Scan QR code on safety audit checklist"
+          },
+          "description": "Unique safety audit identifier"
+        },
+        {
+          "fieldId": "LOCATION",
+          "name": "Location",
+          "component": "TextField",
+          "sequence": 20,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true,
+            "maxLength": 100
+          },
+          "ui": {
+            "helpText": "Enter the specific location being audited"
+          },
+          "description": "Audit location description"
+        },
+        {
+          "fieldId": "AUDITOR_NAME",
+          "name": "Auditor Name",
+          "component": "TextField",
+          "sequence": 30,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true,
+            "maxLength": 50
+          },
+          "description": "Name of person conducting audit"
+        },
+        {
+          "fieldId": "AUDIT_TYPE",
+          "name": "Audit Type",
+          "component": "SelectField",
+          "sequence": 40,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true
+          },
+          "ui": {
+            "helpText": "Select the type of safety audit being conducted"
+          },
+          "reference": {
+            "id": "AUDIT_TYPES",
+            "values": [
+              {
+                "key": "ROUTINE",
+                "display": "Routine Inspection",
+                "description": "Standard monthly safety check",
+                "color": "#4CAF50",
+                "icon": "✅"
+              },
+              {
+                "key": "INCIDENT",
+                "display": "Incident Response",
+                "description": "Post-incident safety audit",
+                "color": "#FF9800",
+                "icon": "⚠️"
+              },
+              {
+                "key": "COMPLIANCE",
+                "display": "Compliance Audit",
+                "description": "Regulatory compliance check",
+                "color": "#2196F3",
+                "icon": "📋"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "tabId": "SAFETY_CHECKS",
+      "name": "Safety Checks",
+      "description": "Detailed safety verification items",
+      "sequence": 20,
+      "tabLevel": 0,
+      "isReadOnly": false,
+      "isSingleRow": true,
+      "fields": [
+        {
+          "fieldId": "EMERGENCY_EXITS",
+          "name": "Emergency Exits Clear",
+          "component": "YesNoField",
+          "sequence": 10,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true
+          },
+          "ui": {
+            "helpText": "Verify all emergency exits are unobstructed"
+          },
+          "description": "Emergency exit accessibility check"
+        },
+        {
+          "fieldId": "FIRE_EXTINGUISHER",
+          "name": "Fire Extinguisher Status",
+          "component": "SelectField",
+          "sequence": 20,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true
+          },
+          "reference": {
+            "id": "EQUIPMENT_STATUS",
+            "values": [
+              {
+                "key": "GOOD",
+                "display": "Good - Properly Charged",
+                "description": "Fire extinguisher is in good condition",
+                "color": "#4CAF50",
+                "icon": "✅"
+              },
+              {
+                "key": "FAIR",
+                "display": "Fair - Needs Attention",
+                "description": "Minor issues requiring attention",
+                "color": "#FF9800",
+                "icon": "⚠️"
+              },
+              {
+                "key": "POOR",
+                "display": "Poor - Immediate Action Required",
+                "description": "Critical safety issue",
+                "color": "#F44336",
+                "icon": "🚨"
+              },
+              {
+                "key": "MISSING",
+                "display": "Missing",
+                "description": "Equipment not found",
+                "color": "#9E9E9E",
+                "icon": "❌"
+              }
+            ]
+          }
+        },
+        {
+          "fieldId": "SAFETY_SIGNAGE",
+          "name": "Safety Signage Visible",
+          "component": "YesNoField",
+          "sequence": 30,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true
+          },
+          "description": "Safety signs are clearly visible and legible"
+        },
+        {
+          "fieldId": "PPE_AVAILABILITY",
+          "name": "PPE Available",
+          "component": "YesNoField",
+          "sequence": 40,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true
+          },
+          "ui": {
+            "helpText": "Personal Protective Equipment properly stocked"
+          },
+          "description": "Personal protective equipment availability"
+        }
+      ]
+    },
+    {
+      "tabId": "DOCUMENTATION",
+      "name": "Documentation",
+      "description": "Photos and additional notes",
+      "sequence": 30,
+      "tabLevel": 0,
+      "isReadOnly": false,
+      "isSingleRow": true,
+      "fields": [
+        {
+          "fieldId": "AUDIT_PHOTO",
+          "name": "Audit Photo",
+          "component": "CameraField",
+          "sequence": 10,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": false
+          },
+          "ui": {
+            "helpText": "Take photo of area being audited"
+          },
+          "description": "Visual documentation of audit area"
+        },
+        {
+          "fieldId": "ISSUE_PHOTO",
+          "name": "Issue Photo (if any)",
+          "component": "CameraField",
+          "sequence": 20,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": false
+          },
+          "ui": {
+            "helpText": "Document any safety issues found"
+          },
+          "description": "Photo evidence of safety concerns"
+        },
+        {
+          "fieldId": "NOTES",
+          "name": "Additional Notes",
+          "component": "TextAreaField",
+          "sequence": 30,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": false,
+            "maxLength": 500
+          },
+          "ui": {
+            "helpText": "Any additional observations or recommendations"
+          },
+          "description": "Detailed audit notes and recommendations"
+        },
+        {
+          "fieldId": "OVERALL_RATING",
+          "name": "Overall Safety Rating",
+          "component": "SelectField",
+          "sequence": 40,
+          "isReadOnly": false,
+          "isDisplayed": true,
+          "validation": {
+            "required": true
+          },
+          "ui": {
+            "helpText": "Rate the overall safety condition of this area"
+          },
+          "reference": {
+            "id": "SAFETY_RATINGS",
+            "values": [
+              {
+                "key": "EXCELLENT",
+                "display": "Excellent",
+                "description": "Exceeds safety standards",
+                "color": "#4CAF50",
+                "icon": "⭐",
+                "sortOrder": 10
+              },
+              {
+                "key": "GOOD",
+                "display": "Good",
+                "description": "Meets all safety requirements",
+                "color": "#8BC34A",
+                "icon": "✅",
+                "sortOrder": 20
+              },
+              {
+                "key": "ACCEPTABLE",
+                "display": "Acceptable",
+                "description": "Minor improvements needed",
+                "color": "#FF9800",
+                "icon": "⚠️",
+                "sortOrder": 30
+              },
+              {
+                "key": "NEEDS_IMPROVEMENT",
+                "display": "Needs Improvement",
+                "description": "Several safety concerns identified",
+                "color": "#FF5722",
+                "icon": "🔧",
+                "sortOrder": 40
+              },
+              {
+                "key": "CRITICAL",
+                "display": "Critical Issues",
+                "description": "Immediate safety action required",
+                "color": "#F44336",
+                "icon": "🚨",
+                "sortOrder": 50
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "source": "external-metadata-server",
+    "lastModified": "2025-01-21T10:30:00.000Z",
+    "createdBy": "ADUI JSON Import Demo",
+    "templateType": "safety-audit",
+    "description": "Demonstrates comprehensive safety audit form with various field types including QR scanning, photo capture, and conditional logic."
+  }
+}
