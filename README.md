@@ -24,6 +24,7 @@
   ]
 }
 ```
+[![ADUI Mobile App](https://img.youtube.com/vi/SO1R-MFX9Kg/0.jpg)](https://youtube.com/shorts/SO1R-MFX9Kg)
 
 **Result:** Professional mobile app with GPS, camera, and QR scanning - no coding required!
 
